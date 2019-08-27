@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spi_10">10sp</dimen>
+    <dimen name="spi_11">11sp</dimen>
+    <dimen name="spi_12">12sp</dimen>
+    <dimen name="spi_15">15sp</dimen>
+
+    <dimen name="dpi_6">6dp</dimen>
+    <dimen name="dpi_8">8dp</dimen>
+    <dimen name="dpi_10">10dp</dimen>
+    <dimen name="dpi_13">13dp</dimen>
+    <dimen name="dpi_15">15dp</dimen>
+    <dimen name="dpi_16">16dp</dimen>
+    <dimen name="dpi_45">45dp</dimen>
+</resources>

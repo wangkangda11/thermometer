@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_margin="@dimen/dpi_8"
+    android:layout_alignParentStart="true"
+    android:layout_height="wrap_content">
+    <com.dazzle.thermometer.ThermometerView
+        android:id="@+id/view_temp"
+        android:visibility="gone"
+        android:layout_width="200dp"
+        android:layout_centerVertical="true"
+        android:layout_height="30dp"/>
+
+    <com.dazzle.thermometer.view.ThermometerView1
+        android:id="@+id/view_"
+        android:layout_width="260dp"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
