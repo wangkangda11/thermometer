@@ -14,14 +14,14 @@ public class ThermometerView1  extends View {
     private static final String TAG = "Thermometer";
 
     Context mContext;
-    private String temperature = "30";
+    private String temperature = "105";
     private final float highTemp = 60;
 
     private Paint backgroundPaint;
     private Paint realityPaint;
     //margin 最大值不超过控件高度的三分之一
-    private int margin = (int) getResources().getDimension(R.dimen.dpi_6);
-    private int marginback = (int) getResources().getDimension(R.dimen.dpi_13);
+    private int margin = (int) getResources().getDimension(R.dimen.dpi_4);
+    private int marginback = (int) getResources().getDimension(R.dimen.dpi_10);
     public ThermometerView1(Context context) {
         super(context);
     }
@@ -57,9 +57,13 @@ public class ThermometerView1  extends View {
         Log.e(TAG,"height=  "+height + "getMeasuredHeight = "+ getMeasuredHeight()+ ", getHeight() =" + getHeight());
         //温度的数值
         float fTemp = Float.parseFloat(temperature);
-        //相信Cpu的温度应该不会超过94度了
-        if(fTemp >94){
-            fTemp =94;
+        //相信Cpu的温度应该不会超过94度了  设置最大温度
+//        if(fTemp >94){
+//            fTemp =94;
+//        }
+
+        if(fTemp >120){
+            fTemp =120;
         }
         Log.e(TAG,"fTemp = "+fTemp);
         //温度文字
@@ -75,7 +79,7 @@ public class ThermometerView1  extends View {
         //除去圆左边的宽度 ==>> 就是温度所要表示的总进度100%
         int sywidth =  width - CircleStart;
         //温度矩形的进度就等于温度除以总进度然后乘以总宽度
-        float v = (fTemp/100) * sywidth;
+        float v = (fTemp/125) * sywidth;//(fTemp/100) * sywidth
         Log.e(TAG,"V = "+v);
 
         int CircleR = margin*3/2;
@@ -89,17 +93,26 @@ public class ThermometerView1  extends View {
         //根据温度的绘制
         //fTemp小于定义的高温则显示正常的绿色,否则显示高温红色
         if(fTemp < highTemp){
-            realityPaint.setColor(Color.parseColor("#3DB475"));
+            realityPaint.setColor(Color.parseColor("#13db39"));
             canvas.drawText(T,0,getMeasuredHeight()*2/3,realityPaint);
             canvas.drawCircle(CircleStart,height,CircleR,realityPaint);
             canvas.drawCircle(v+CircleStart,height,CircleR*2/3,realityPaint);
             canvas.drawRect(RectStart, height-margin, v+CircleStart, height+margin, realityPaint);
         }else{
-            realityPaint.setColor(Color.parseColor("#F65402"));
-            canvas.drawText(T,0,getMeasuredHeight()*2/3,realityPaint);
-            canvas.drawCircle(CircleStart,height,CircleR,realityPaint);
-            canvas.drawCircle(v+CircleStart,height,CircleR*2/3,realityPaint);
-            canvas.drawRect(RectStart, height-margin, v+CircleStart, height+margin, realityPaint);
+            if(fTemp >75){
+                realityPaint.setColor(Color.parseColor("#ff3000"));
+                canvas.drawText(T,0,getMeasuredHeight()*2/3,realityPaint);
+                canvas.drawCircle(CircleStart,height,CircleR,realityPaint);
+                canvas.drawCircle(v+CircleStart,height,CircleR*2/3,realityPaint);
+                canvas.drawRect(RectStart, height-margin, v+CircleStart, height+margin, realityPaint);
+            }else {
+                realityPaint.setColor(Color.parseColor("#fec534"));
+                canvas.drawText(T,0,getMeasuredHeight()*2/3,realityPaint);
+                canvas.drawCircle(CircleStart,height,CircleR,realityPaint);
+                canvas.drawCircle(v+CircleStart,height,CircleR*2/3,realityPaint);
+                canvas.drawRect(RectStart, height-margin, v+CircleStart, height+margin, realityPaint);
+            }
+
         }
 
 

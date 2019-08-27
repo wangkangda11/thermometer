@@ -62,7 +62,7 @@ public class ThermometerView extends View {
         Log.e(TAG,"fTemp = "+fTemp);
         //温度文字
         String T = fTemp + "°C";
-        T="";
+//        T="";
         //圆开始的位置
         int CircleStart = getTextWidth(realityPaint,T)+margin*2;
         Log.e(TAG,"CircleStart =  "+CircleStart);

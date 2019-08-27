@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.dazzle.thermometer.view.ThermometerView1;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,12 +15,20 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     private ThermometerView thermometerView;
+    private ThermometerView1 view_a,view_b,view_c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         thermometerView =findViewById(R.id.view_temp);
+        view_a =findViewById(R.id.view_a);
+        view_b =findViewById(R.id.view_b);
+        view_c =findViewById(R.id.view_c);
+
+        view_a.setTemp(getApplicationContext(),"36");
+        view_b.setTemp(getApplicationContext(),"72");
+        view_c.setTemp(getApplicationContext(),"120");
     }
 
     @Override
